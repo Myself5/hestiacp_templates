@@ -1,6 +1,6 @@
 #=======================================================================#
 # Default Web Domain Template                                     
-Modified for generic IPv6 Support
+# Modified for generic IPv6 Support
 #=======================================================================#
 
 server {
