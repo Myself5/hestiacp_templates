@@ -26,7 +26,11 @@ server {
     location @fallback {
         proxy_pass      https://127.0.0.1:%web_ssl_port%;
     }
-
+    
+    location /phpmyadmin/ {
+        proxy_pass      https://%ip%/phpmyadmin/;
+    }
+    
     location ~ /\.ht    {return 404;}
     location ~ /\.svn/  {return 404;}
     location ~ /\.git/  {return 404;}
