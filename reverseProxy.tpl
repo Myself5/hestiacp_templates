@@ -22,6 +22,15 @@ server {
         proxy_pass      http://127.0.0.1:%web_port%;
     }
 
+    location /phpmyadmin/ {
+        proxy_set_header        Host $host:$server_port;
+        proxy_set_header        X-Real-IP $remote_addr;
+        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header        X-Forwarded-Proto $scheme;
+        proxy_redirect http:// https://;
+        proxy_pass      http://%ip%:%web_port%/phpmyadmin/;
+    }
+
     location ~ /\.ht    {return 404;}
     location ~ /\.svn/  {return 404;}
     location ~ /\.git/  {return 404;}
